@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <app-header />
-    <app-sidebar v-model="isSidebarOpen" />
-    <button @click="toggleSidebarInner"></button>
+    <app-sidebar :open="isSidebarOpen" />
     <page-wrapper>
       <router-view />
     </page-wrapper>
@@ -65,17 +64,7 @@ body {
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.page {
+  @apply p-8;
 }
 </style>

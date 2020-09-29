@@ -1,1 +1,4 @@
 export const SET_COURSES = 'SET_COURSES';
+export const SET_PICKED_COURSE = 'SET_PICKED_COURSE';
+
+export const SET_LESSONS_LIST = 'SET_LESSONS_LIST';
