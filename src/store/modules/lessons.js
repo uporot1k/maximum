@@ -18,7 +18,7 @@ export default {
     },
   },
   getters: {
-    getLessonInfoById: (state) => (id) => state.items.filter((lesson) => +lesson.id === +id)[0],
+    getLessonInfoById: (state) => (id) => state.items.find((lesson) => +lesson.id === +id),
     filteredLessons: (state, _, rootState) => state.items.filter((lesson) => lesson.courseId === rootState.Courses.pickedCourse),
   },
 };
