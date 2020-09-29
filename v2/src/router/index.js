@@ -13,14 +13,6 @@ const routes = [
     },
   },
   {
-    path: '/',
-    name: 'Schedule',
-    component: () => import(/* webpackChunkName: "schedule" */ '../views/Schedule.vue'),
-    meta: {
-      title: 'Расписание',
-    },
-  },
-  {
     path: '/lessons',
     name: 'LessonsList',
     component: () => import(/* webpackChunkName: "lessons-list" */ '../views/Lessons/List.vue'),

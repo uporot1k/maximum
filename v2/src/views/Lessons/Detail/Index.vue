@@ -9,7 +9,6 @@
     <div class="flex justify-between w-1/4 mx-auto">
       <router-link :to="{ name: 'LessonDetailTests' }" class="mr-4">Тесты</router-link>
       <router-link :to="{ name: 'LessonDetailStat' }">Статистика</router-link>
-
     </div>
     <router-view class="mt-4"></router-view>
   </div>

@@ -20,7 +20,7 @@
 <script>
 import MPagination from '@/components/ui/MPagination.vue';
 
-import { mapActions, mapGetters } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
   components: {
@@ -33,6 +33,7 @@ export default {
     };
   },
   computed: {
+    ...mapState('courses', ['pickedCourse']),
     ...mapGetters('Lessons', ['filteredLessons']),
     lessonsList() {
       return this.filteredLessons?.slice((this.pageNumber - 1) * (this.pageSize - 1), this.pageNumber * this.pageSize);
