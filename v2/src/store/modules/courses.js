@@ -1,16 +1,20 @@
 import * as CourseService from '../../services/courses';
+import { SET_COURSES } from '../mutations-types';
 
 export default {
   namespaced: true,
   state: {
     items: [],
   },
+  mutations: {
+    [SET_COURSES](state, payload) {
+      state.items = payload;
+    },
+  },
   actions: {
     async fetchCoursesList({ commit }) {
-      console.log(CourseService);
       const res = await CourseService.fetchList();
-      debugger;
-      commit('SET_COURSES', res);
+      commit('SET_COURSES', res.data);
     },
   },
 };

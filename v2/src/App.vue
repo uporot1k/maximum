@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <app-header />
-    <app-sidebar :value="isSidebarOpen" />
+    <app-sidebar v-model="isSidebarOpen" />
+    <button @click="toggleSidebarInner"></button>
     <page-wrapper>
       <router-view />
     </page-wrapper>
@@ -22,8 +23,8 @@ export default {
   },
   provide() {
     return {
-      toggleSidebar() {
-        this.isSidebarOpen = !this.isSidebarOpen;
+      toggleSidebar: () => {
+        this.toggleSidebarInner();
       },
     };
   },
@@ -32,8 +33,16 @@ export default {
       isSidebarOpen: false,
     };
   },
+  watch: {
+    $route() {
+      this.isSidebarOpen = false;
+    },
+  },
   methods: {
     ...mapActions('Courses', ['fetchCoursesList']),
+    toggleSidebarInner() {
+      this.isSidebarOpen = !this.isSidebarOpen;
+    },
   },
   async created() {
     const fns = [
@@ -45,6 +54,10 @@ export default {
 };
 </script>
 <style lang="scss">
+body {
+  padding: 0;
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
